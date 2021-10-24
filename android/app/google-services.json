@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "175705010388",
+    "project_id": "instantmus",
+    "storage_bucket": "instantmus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175705010388:android:cd6f6cf60304889c374b41",
+        "android_client_info": {
+          "package_name": "com.instantmus.im"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175705010388-02081vnl5ctv1e106cjf9ilkhkrov9ek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFITEx321FjgabtUgRRvv9wzw9zNf6qoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175705010388-02081vnl5ctv1e106cjf9ilkhkrov9ek.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "175705010388-ilpjttnjaiupegtoq6fdvl2kt6pli34u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.instantmus.im"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>175705010388-ilpjttnjaiupegtoq6fdvl2kt6pli34u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.175705010388-ilpjttnjaiupegtoq6fdvl2kt6pli34u</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD5TqOPNsHyKBhu5Vnbb03KJtokMilxi7w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>175705010388</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.instantmus.im</string>
+	<key>PROJECT_ID</key>
+	<string>instantmus</string>
+	<key>STORAGE_BUCKET</key>
+	<string>instantmus.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:175705010388:ios:f433aa6c50ef650a374b41</string>
+</dict>
+</plist>
