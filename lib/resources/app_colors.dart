@@ -9,4 +9,5 @@ class AppColors {
   static const accentBusy = Color(0XffC54A4A);
   static const background = Color(0XffF9F9F9);
   static const screen = Color(0Xff94A8A5);
+  static const white = Colors.white;
 }

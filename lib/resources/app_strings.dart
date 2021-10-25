@@ -34,4 +34,16 @@ static const String DID_NOT_RECV = 'Did not receive?';
 static const String BTN_RESEND = 'Resend email';
 static const String CHECKING = 'checking if email is verified . . . ';
 
+//ONBOARDING
+static const String ONBOARD_EASY_ACCESSIBLE_TITLE = 'Easy and accessible music lessons for everyone';
+static const String ONBOARD_EASY_ACCESSIBLE_CONTENT = 'Find your perfect teacher and take music lessons anytime and anywhere';
+static const String ONBOARD_EVERYONE_CAN_LEARN_TITLE = 'Everyone can learn and teach music';
+static const String ONBOARD_EVERYONE_CAN_LEARN_CONTENT = 'SImply activate teaching account and teach anything you know about music';
+static const String ONBOARD_CONDITIONS_APPLY = '* conditions apply';
+static const String ONBOARD_MUSCOIN_IS_ALL_TITLE = 'MusCoin is all you need to start learning!';
+static const String ONBOARD_MUSCOIN_IS_ALL_CONTENT = 'Collect or purchase InstantMus currency and take music lessons right away';
+static const String BTN_NEXT = 'Next';
+static const String BTN_STARTED = 'Get started';
+
+
 }

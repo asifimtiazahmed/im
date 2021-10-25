@@ -23,7 +23,7 @@ class FirebaseAuthManager extends ChangeNotifier {
   bool isAppleSignedIn = false;
   bool isEmailSignedIn = false;
   bool isEmailVerified = false;
-  bool hasCompletedOnboarding = true;
+  bool hasCompletedOnboarding = false;
   final googleSignIn = GoogleSignIn();
   GoogleSignInAccount? _user;
   GoogleSignInAccount get user => _user!;

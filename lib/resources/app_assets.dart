@@ -8,4 +8,7 @@ class AppAssets {
   static const String FACEBOOK_LOGO = 'assets/logo/logos_facebook.png';
   static const String APPLE_LOGO = 'assets/logo/appleLogo.png';
   static const String EMAIL_IMAGE = 'assets/images/email_image.png';
+  static const String ONBOARDING_1 = 'assets/images/onboarding_moz_1.png';
+  static const String ONBOARDING_2 = 'assets/images/onboarding_moz_2.png';
+  static const String ONBOARDING_3 = 'assets/images/onboarding_coin.png';
 }

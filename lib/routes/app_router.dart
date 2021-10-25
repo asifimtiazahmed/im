@@ -6,6 +6,9 @@ import 'package:im/scenes/dashboard/dashboard_scene_view_model.dart';
 import 'package:im/scenes/email_verification/email_verify_scene.dart';
 import 'package:im/scenes/email_verification/email_verify_view_model.dart';
 import 'package:im/scenes/login/login_scene.dart';
+import 'package:im/scenes/onboarding_scene/onboarding_form.dart';
+import 'package:im/scenes/onboarding_scene/onboarding_scene.dart';
+import 'package:im/scenes/onboarding_scene/onboarding_scene_view_model.dart';
 import 'package:im/services/firebase_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -39,6 +42,18 @@ class AppRouter {
             builder: (context, _) => const DashboardScene(),
           ),
         );
+      case OnboardingScene.routeName:
+        return MaterialPageRoute(
+          builder: (context) => const OnboardingScene(),
+        );
+      case OnboardingForm.routeName:
+        return MaterialPageRoute(
+          builder: (context) => ChangeNotifierProvider.value(
+            value: OnboardingSceneViewModel(),
+            builder: (context, _) => const OnboardingForm(),
+          ),
+        );
+
       default:
         return MaterialPageRoute(
           builder: (context) => ChangeNotifierProvider.value(
