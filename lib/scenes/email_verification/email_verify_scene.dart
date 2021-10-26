@@ -6,6 +6,7 @@ import 'package:im/resources/app_styles.dart';
 import 'package:im/scenes/login/login_scene.dart';
 import 'package:im/services/firebase_auth.dart';
 import 'package:im/widgets/button.dart';
+import 'package:im/widgets/loading_logo.dart';
 import 'package:provider/provider.dart';
 
 import 'email_verify_view_model.dart';
@@ -100,11 +101,10 @@ class EmailVerifyScene extends StatelessWidget {
                             style: AppStyles.subBodyText
                                 .copyWith(color: AppColors.secondaryInactive)),
                         const SizedBox(
-                            height: 30,
-                            width: 30,
-                            child: CircularProgressIndicator(
-                              color: AppColors.primary,
-                            )),
+                          height: 30,
+                          width: 30,
+                          child: LoadingLogo(size: 40),
+                        ),
                       ]),
               ],
             ),
