@@ -44,6 +44,9 @@ static const String ONBOARD_MUSCOIN_IS_ALL_TITLE = 'MusCoin is all you need to s
 static const String ONBOARD_MUSCOIN_IS_ALL_CONTENT = 'Collect or purchase InstantMus currency and take music lessons right away';
 static const String BTN_NEXT = 'Next';
 static const String BTN_STARTED = 'Get started';
+//ONBOARDING FORM
+static const String ONBOARD_CREATE_PROFILE_TITLE = 'Create your profile';
+static const String ONBOARD_CREATE_PROFILE_CONTENT = 'Some of information will show on your public profile to help you find the best match of teachers or students.';
 
 
 }

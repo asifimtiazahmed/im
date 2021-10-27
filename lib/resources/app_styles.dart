@@ -7,7 +7,7 @@ class AppStyles {
   static final subTitle =
       const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, height: 1.25);
   static final bodyText =
-      TextStyle(fontSize: 16, height: 1.27, color: AppColors.text);
+      TextStyle(fontSize: 16, height: 1.37, color: AppColors.text);
   static const subBodyText =
       TextStyle(fontSize: 14, fontWeight: FontWeight.w500, height: 1.25);
   static const subBodyTextInactive = TextStyle(fontSize: 14, height: 1.25);
