@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:im/resources/app_colors.dart';
 
 class AppStyles {
+  static final onboardingTitle =
+      TextStyle(fontSize: 24, fontWeight: FontWeight.w700, letterSpacing: 0.8);
   static final title =
       TextStyle(fontSize: 18, fontWeight: FontWeight.bold, letterSpacing: 0.7);
   static final subTitle =

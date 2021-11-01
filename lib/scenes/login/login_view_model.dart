@@ -5,12 +5,15 @@ import 'package:get_it/get_it.dart';
 import 'package:im/resources/app_colors.dart';
 import 'package:im/resources/app_strings.dart';
 import 'package:im/scenes/email_verification/email_verify_scene.dart';
+import 'package:im/scenes/onboarding_scene/onboarding_scene.dart';
 import 'package:im/scenes/root_scene/root_view.dart';
 import 'package:im/services/firebase_auth.dart';
 import 'package:email_validator/email_validator.dart';
 
 class LoginViewModel extends ChangeNotifier {
   late BuildContext ctx;
+  bool isLoading = true;
+  final containerKey = Key('animated');
   final emailTextController = TextEditingController();
   final passwordTextController = TextEditingController();
   final verifyPasswordTextController = TextEditingController();
@@ -36,8 +39,8 @@ class LoginViewModel extends ChangeNotifier {
   final authManager = GetIt.I<FirebaseAuthManager>();
   LoginViewModel() {
     print('auth manager initiated');
-
     initialUIUpdate();
+    isLoading = false;
   }
   initialUIUpdate() async {
     print('calling authManager init again and waiting');
@@ -247,6 +250,7 @@ class LoginViewModel extends ChangeNotifier {
       tagLineFlexValue = 1;
       buttonFlexValue = 2;
       showPasswordTextField = false;
+      print('here');
     }
     notifyListeners();
   }
@@ -401,8 +405,13 @@ class LoginViewModel extends ChangeNotifier {
     } else if (authManager.loginState == ApplicationLoginState.loggedIn &&
         authManager.whichLoginMethod() == 'Email' &&
         !authManager.emailVerified) {
-      print('email');
+      print('email unverified');
       Navigator.pushReplacementNamed(context, EmailVerifyScene.routeName);
+    } else if (authManager.loginState == ApplicationLoginState.loggedIn &&
+        authManager.whichLoginMethod() == 'Email' &&
+        authManager.emailVerified) {
+      print('email verified');
+      Navigator.pushReplacementNamed(context, OnboardingScene.routeName);
     }
   }
 

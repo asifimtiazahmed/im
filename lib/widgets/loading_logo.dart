@@ -44,7 +44,7 @@ class LoadingLogoViewModel extends ChangeNotifier {
   }
 
   void getAngle() {
-    timer = Timer.periodic(Duration(milliseconds: 20), (timer) {
+    timer = Timer.periodic(Duration(milliseconds: 100), (timer) {
       addAngle();
     });
   }

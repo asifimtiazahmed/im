@@ -33,7 +33,7 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.3
 
 dev_dependencies:
   flutter_test:
@@ -44,7 +44,6 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  cupertino_icons: ^1.0.3
   firebase_analytics: ^8.3.4
   firebase_auth: ^3.1.4
   cloud_firestore: ^2.5.4
@@ -52,12 +51,14 @@ dev_dependencies:
   provider: ^6.0.1
   google_fonts: ^2.1.0
   get_it: ^7.2.0
-  flutter_facebook_auth: ^3.5.2
-  google_sign_in: ^5.2.0
+  flutter_facebook_auth: ^3.5.3
+  google_sign_in: ^5.2.1
   sign_in_with_apple: ^3.2.0
-  email_validator: ^2.0.1
-  fluentui_system_icons: ^1.1.143 #https://pub.dev/packages/fluentui_system_icons/
-  fluttertoast: ^8.0.8
+  email_validator: ^2.0.1 #Validating if emails entered are good and valid
+  fluentui_system_icons: ^1.1.146 #https://pub.dev/packages/fluentui_system_icons/
+  fluttertoast: ^8.0.8 #Provide notifications
+  intl: ^0.17.0 #To format date
+  csc_picker: ^0.2.6 #This is to select country and state
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

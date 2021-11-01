@@ -8,6 +8,7 @@ import 'package:im/resources/app_styles.dart';
 import 'package:im/scenes/login/widgets/social_button.dart';
 import 'package:im/services/firebase_auth.dart';
 import 'package:im/widgets/button.dart';
+import 'package:im/widgets/loading_logo.dart';
 import 'package:provider/provider.dart';
 import 'login_view_model.dart';
 
@@ -45,6 +46,7 @@ class LoginScene extends StatelessWidget {
                                   bottom: scrSize.height * 0.02),
                               child: Center(
                                 child: AnimatedContainer(
+                                  key: vm.containerKey,
                                   duration: const Duration(milliseconds: 200),
                                   width: vm.showTagMesssage ? 166 : 166 * 1.30,
                                   height: vm.showTagMesssage ? 48 : 48 * 1.30,
@@ -189,21 +191,23 @@ class LoginScene extends StatelessWidget {
                             ),
                             const SizedBox(height: 20),
                             //CONTINUE/SUBMIT BUTTON
-                            ActiveButton(
-                              title: vm.btnTitle,
-                              width: 225,
-                              onPressed: () async {
-                                if (vm.authManager.loginState !=
-                                    ApplicationLoginState.loggedIn) {
-                                  await vm.inputTextOnSubmitted();
-                                }
-                                vm.submit(context);
-                                //vm.submit
-                              },
-                              customTextColor: vm.btnTextColor,
-                              backgroundColor: vm.btnBackgroundColor,
-                              isCustomBgColor: true,
-                            ),
+                            (vm.isLoading)
+                                ? LoadingLogo(size: 50)
+                                : ActiveButton(
+                                    title: vm.btnTitle,
+                                    width: 225,
+                                    onPressed: () async {
+                                      if (vm.authManager.loginState !=
+                                          ApplicationLoginState.loggedIn) {
+                                        await vm.inputTextOnSubmitted();
+                                      }
+                                      vm.submit(context);
+                                      //vm.submit
+                                    },
+                                    customTextColor: vm.btnTextColor,
+                                    backgroundColor: vm.btnBackgroundColor,
+                                    isCustomBgColor: true,
+                                  ),
                             const SizedBox(height: 20),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
