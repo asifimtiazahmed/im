@@ -17,6 +17,7 @@ static const String BTN_RESEND = 'Resend email';
 static const String BTN_NEXT = 'Next';
 static const String BTN_STARTED = 'Get started';
 static const String BTN_SELECT_DATE = 'Select date';
+static const String BTN_ADD = 'Add';
 
 
 //LOGIN VIEW MODEL
@@ -65,7 +66,7 @@ static const String OB_DOB_TITLE = 'Date of Birth (YYYY/MM/DD)';
 static const String OB_DAY = 'Day';
 static const String OB_MONTH = 'Month';
 static const String OB_YEAR = 'Year';
-static const String OB_DOB_HELPER = 'You need to be at least 13 to sign up. Your DOB will not show on your public profile.';
+static const String OB_DOB_HELPER = 'Tap on the box to select and enter your date of birth. You need to be at least 13 to sign up. Your DOB will not show on your public profile.';
 static const String OB_CURRENT_LOCATION = 'Current Location';
 static const String OB_COUNTRY = 'Country';
 static const String OB_CITY = 'City';

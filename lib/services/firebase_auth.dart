@@ -65,7 +65,7 @@ class FirebaseAuthManager extends ChangeNotifier {
       if (user != null) {
         isEmailVerified = FirebaseAuth.instance.currentUser!.emailVerified;
         _loginState = ApplicationLoginState.loggedIn;
-        print('user found $user');
+        //print('user found $user');
         //Checking if the email has been verified and setting the value
         checkEmailVerification();
         firebaseUser = user;

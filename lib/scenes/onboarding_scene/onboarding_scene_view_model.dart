@@ -7,7 +7,10 @@ import 'package:im/resources/app_styles.dart';
 import 'package:im/services/firebase_auth.dart';
 import 'package:im/scenes/onboarding_scene/page_indicator.dart';
 import 'package:get_it/get_it.dart';
+import 'package:im/widgets/button.dart';
 import 'package:intl/intl.dart';
+import 'package:language_picker/languages.dart';
+import 'package:language_picker/language_picker.dart';
 
 import 'onboarding_form.dart';
 
@@ -23,6 +26,7 @@ class OnboardingSceneViewModel extends ChangeNotifier {
   String _country = '';
   String _state = '';
   String _city = '';
+  List<String> spokenLanguages = [];
 
   get country => _country;
   get state => _state;
@@ -244,5 +248,148 @@ class OnboardingSceneViewModel extends ChangeNotifier {
             ),
           );
         });
+  }
+
+  ///Select and add Language
+
+  selectLanguage(BuildContext context) async {
+    final ThemeData theme = Theme.of(context);
+    switch (theme.platform) {
+      case TargetPlatform.android:
+      case TargetPlatform.fuchsia:
+      case TargetPlatform.linux:
+      case TargetPlatform.windows:
+        return buildMaterialLanguagePicker(context);
+      case TargetPlatform.iOS:
+      case TargetPlatform.macOS:
+        return buildCupertinoLanguagePicker(context);
+    }
+  }
+
+  Language _selectedDialogLanguage = Languages.abkhazian;
+
+// It's sample code of Dialog Item.
+  Widget _buildDialogItem(Language language) => Row(
+        children: <Widget>[
+          Text(language.name),
+          SizedBox(width: 8.0),
+          Flexible(child: Text("(${language.isoCode})"))
+        ],
+      );
+
+  void buildMaterialLanguagePicker(BuildContext context) => showDialog(
+      context: context,
+      builder: (context) => Theme(
+            data: Theme.of(context).copyWith(primaryColor: Colors.pink),
+            child: LanguagePickerDialog(
+                titlePadding: EdgeInsets.all(8.0),
+                searchCursorColor: Colors.pinkAccent,
+                searchInputDecoration: InputDecoration(hintText: 'Search...'),
+                isSearchable: true,
+                title: Text('Select your language'),
+                onValuePicked: (Language language) {
+                  _selectedDialogLanguage = language;
+                  print(_selectedDialogLanguage.name);
+                  print(_selectedDialogLanguage.isoCode);
+                  notifyListeners();
+                },
+                itemBuilder: _buildDialogItem),
+          ));
+  // Cupertino language selection
+  void buildCupertinoLanguagePicker(context) => showCupertinoModalPopup<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return Align(
+          alignment: Alignment.center,
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColors.white,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    AppStrings.OB_ADD_LANGUAGE,
+                    style: AppStyles.subBodyText
+                        .copyWith(color: AppColors.primary),
+                  ),
+                ),
+                LanguagePickerCupertino(
+                    diameterRatio: 5,
+                    pickerSheetHeight: 230.0,
+                    pickerItemHeight: 50,
+                    onValuePicked: (Language language) {
+                      _selectedDialogLanguage = language;
+                      print(_selectedDialogLanguage.name);
+                      print(_selectedDialogLanguage.isoCode);
+                      notifyListeners();
+                    }),
+                ActiveButton(
+                  onPressed: () {
+                    spokenLanguages.add(_selectedDialogLanguage.name);
+                    Navigator.pop(context);
+                    notifyListeners();
+                  },
+                  title: AppStrings.BTN_ADD,
+                  isCustomBgColor: true,
+                  customTextColor: AppColors.white,
+                  backgroundColor: AppColors.primary,
+                ),
+              ],
+            ),
+          ),
+        );
+      });
+
+//LANGUAGE ADDED CHIPS
+  List<Widget> languageChips() {
+    List<Widget> retLang = [];
+    if (spokenLanguages.isNotEmpty) {
+      for (var i = 0; i < spokenLanguages.length; i++) {
+        retLang.add(Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            height: 45,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(40),
+              border: Border.all(color: AppColors.secondaryInactive, width: 1),
+              color: AppColors.secondaryInactive,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: Text(spokenLanguages[i],
+                        style: AppStyles.subTitle
+                            .copyWith(color: AppColors.inactiveBtnText)),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: IconButton(
+                      icon: Icon(Icons.close, color: AppColors.white),
+                      onPressed: () {
+                        spokenLanguages.removeAt(i);
+                        notifyListeners();
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ));
+      }
+    }
+
+    return retLang;
   }
 }

@@ -27,7 +27,7 @@ class OnboardingForm extends StatelessWidget {
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 30.0, vertical: 75),
+                    const EdgeInsets.symmetric(horizontal: 30.0, vertical: 40),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -49,7 +49,7 @@ class OnboardingForm extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
               child: Container(
-                height: scrSize.height * 0.55,
+                height: scrSize.height * 0.50,
                 child: SingleChildScrollView(
                   child: Form(
                     key: vm.formKey,
@@ -68,6 +68,7 @@ class OnboardingForm extends StatelessWidget {
                             }
                           },
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(10, 2, 2, 2),
                             labelText: AppStrings.OB_FIRST_NAME,
                             labelStyle: AppStyles.subBodyText.copyWith(
                               color: AppColors.secondaryInactive,
@@ -95,6 +96,7 @@ class OnboardingForm extends StatelessWidget {
                             }
                           },
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(10, 2, 2, 2),
                             labelText: AppStrings.OB_LAST_NAME,
                             labelStyle: AppStyles.subBodyText.copyWith(
                               color: AppColors.secondaryInactive,
@@ -120,37 +122,29 @@ class OnboardingForm extends StatelessWidget {
                         Text(AppStrings.OB_DOB_TITLE,
                             style: AppStyles.subBodyText),
                         const SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                  color: AppColors.primary,
-                                  width: 1,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Text(
-                                  vm.birthDate,
-                                  style: AppStyles.subBodyText.copyWith(
-                                      wordSpacing: 2,
-                                      letterSpacing: 1.5,
-                                      color: AppColors.primary,
-                                      fontWeight: FontWeight.w700),
-                                ),
+                        GestureDetector(
+                          onTap: () => vm.selectDate(context),
+                          child: Container(
+                            height: 45,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: AppColors.primary,
+                                width: 1,
                               ),
                             ),
-                            ActiveButton(
-                              title: AppStrings.BTN_SELECT_DATE,
-                              isOutlined: true,
-                              customTextColor: AppColors.primary,
-                              onPressed: () => vm.selectDate(context),
-                              width: 150,
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(10, 12, 20, 2),
+                              child: Text(
+                                vm.birthDate,
+                                style: AppStyles.subBodyText.copyWith(
+                                    wordSpacing: 2,
+                                    letterSpacing: 1.5,
+                                    color: AppColors.primary,
+                                    fontWeight: FontWeight.w700),
+                              ),
                             ),
-                          ],
+                          ),
                         ),
                         Text(
                           AppStrings.OB_DOB_HELPER,
@@ -207,16 +201,52 @@ class OnboardingForm extends StatelessWidget {
                                   color: AppColors.primary, width: 1)),
                         ),
                         const SizedBox(height: 30),
+
+                        ///LANGUAGE
+                        Text(AppStrings.OB_ADD_LANGUAGE),
+                        const SizedBox(height: 10),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            ActiveButton(
+                              title: '+ ${AppStrings.BTN_ADD}',
+                              isCustomBgColor: true,
+                              backgroundColor: AppColors.primary,
+                              customTextColor: AppColors.white,
+                              width: 180,
+                              onPressed: () {
+                                vm.selectLanguage(context);
+                              },
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                              width: 370,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: AppColors.primary, width: 1),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Wrap(
+                                  children: vm.languageChips(),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            SizedBox(),
+                            SizedBox(width: 20),
                             ActiveButton(
                               title: AppStrings.BTN_CONTINUE,
                               isCustomBgColor: true,
                               backgroundColor: AppColors.primary,
                               customTextColor: AppColors.white,
-                              width: 180,
+                              width: 120,
                               onPressed: () {
                                 vm.logOut();
                               },

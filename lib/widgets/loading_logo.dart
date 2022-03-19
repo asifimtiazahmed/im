@@ -56,7 +56,7 @@ class LoadingLogoViewModel extends ChangeNotifier {
 
   @override
   dispose() {
-    super.dispose();
     timer.cancel;
+    super.dispose();
   }
 }

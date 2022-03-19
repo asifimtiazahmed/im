@@ -70,8 +70,9 @@ class EmailVerifyViewModel extends ChangeNotifier {
       if (authManager.firebaseUser!.emailVerified) {
         isVerified = true;
         notifyListeners();
-        Navigator.pushReplacementNamed(ctx, AuthenticationGateView.routeName);
+        Navigator.pushNamed(ctx, AuthenticationGateView.routeName);
         timer.cancel();
+        //timer2.cancel();
         print('timer1 cancelled');
       }
     }

@@ -49,7 +49,7 @@ class ActiveButton extends StatelessWidget {
         ),
 
         width: (width == 0) ? MediaQuery.of(context).size.width * 0.70 : width,
-        height: 50, //As per design specs
+        height: 40, //As per design specs
         child: Center(
           child: Text(
             title,

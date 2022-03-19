@@ -103,7 +103,8 @@ class EmailVerifyScene extends StatelessWidget {
                         const SizedBox(
                           height: 30,
                           width: 30,
-                          child: LoadingLogo(size: 40),
+                          child: CircularProgressIndicator(),
+                          //LoadingLogo(size: 40),
                         ),
                       ]),
               ],

@@ -49,7 +49,7 @@ class LoginScene extends StatelessWidget {
                                   key: vm.containerKey,
                                   duration: const Duration(milliseconds: 200),
                                   width: vm.showTagMesssage ? 166 : 166 * 1.30,
-                                  height: vm.showTagMesssage ? 48 : 48 * 1.30,
+                                  height: vm.showTagMesssage ? 42 : 42 * 1.30,
                                   child: Image.asset(
                                     AppAssets.HORIZONTAL_LOGO,
                                     fit: BoxFit.fill,
@@ -61,7 +61,7 @@ class LoginScene extends StatelessWidget {
                             if (vm.showTagMesssage)
                               SizedBox(
                                 height: 100,
-                                width: 232,
+                                width: 236,
                                 child: Text(
                                   AppStrings.TAG_LINE,
                                   style: AppStyles.bodyText.copyWith(
@@ -208,51 +208,53 @@ class LoginScene extends StatelessWidget {
                                     backgroundColor: vm.btnBackgroundColor,
                                     isCustomBgColor: true,
                                   ),
-                            const SizedBox(height: 20),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
-                                    height: 1,
-                                    width: scrSize.width * 0.30,
-                                    color: Colors.black38),
-                                SizedBox(width: scrSize.width * 0.05),
-                                const Text(AppStrings.OR),
-                                SizedBox(width: scrSize.width * 0.05),
-                                Container(
-                                    height: 1,
-                                    width: scrSize.width * 0.30,
-                                    color: Colors.black38),
-                              ],
-                            ),
-                            const SizedBox(height: 30),
-                            //Google Sign-in Button
-                            SocialButton(
-                              imageAsset: AppAssets.GOOGLE_LOGO,
-                              onTap: () async {
-                                print('trying google sign in');
-                                await vm.googleSignIn();
-                              },
-                              text: AppStrings.SIGN_IN_GOOGLE,
-                            ),
-                            const SizedBox(height: 15),
-                            //Facebook Sign-in Button
-                            SocialButton(
-                              imageAsset: AppAssets.FACEBOOK_LOGO,
-                              onTap: () async {
-                                print('trying to login to fb');
-                                await vm.facebookSignIn();
-                              },
-                              text: AppStrings.SIGN_IN_FACEBOOK,
-                            ),
-                            const SizedBox(height: 15),
-                            SocialButton(
-                              imageAsset: AppAssets.APPLE_LOGO,
-                              onTap: () async {
-                                print('trying to login with Apple');
-                              },
-                              text: AppStrings.SIGN_IN_APPLE,
-                            ),
+                            // const SizedBox(height: 20),
+                            // //OR
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            //   children: [
+                            //     Container(
+                            //         height: 1,
+                            //         width: scrSize.width * 0.30,
+                            //         color: Colors.black38),
+                            //     SizedBox(width: scrSize.width * 0.05),
+                            //     const Text(AppStrings.OR),
+                            //     SizedBox(width: scrSize.width * 0.05),
+                            //     Container(
+                            //         height: 1,
+                            //         width: scrSize.width * 0.30,
+                            //         color: Colors.black38),
+                            //   ],
+                            // ),
+                            // const SizedBox(height: 30),
+                            // //Google Sign-in Button
+                            // SocialButton(
+                            //   imageAsset: AppAssets.GOOGLE_LOGO,
+                            //   onTap: () async {
+                            //     print('trying google sign in');
+                            //     await vm.googleSignIn();
+                            //   },
+                            //   text: AppStrings.SIGN_IN_GOOGLE,
+                            // ),
+                            // const SizedBox(height: 15),
+                            // //Facebook Sign-in Button
+                            // SocialButton(
+                            //   imageAsset: AppAssets.FACEBOOK_LOGO,
+                            //   onTap: () async {
+                            //     print('trying to login to fb');
+                            //     await vm.facebookSignIn();
+                            //   },
+                            //   text: AppStrings.SIGN_IN_FACEBOOK,
+                            // ),
+                            // const SizedBox(height: 15),
+                            // //Apple sign in
+                            // SocialButton(
+                            //   imageAsset: AppAssets.APPLE_LOGO,
+                            //   onTap: () async {
+                            //     print('trying to login with Apple');
+                            //   },
+                            //   text: AppStrings.SIGN_IN_APPLE,
+                            // ),
                           ],
                         ),
                       )

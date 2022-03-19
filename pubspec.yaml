@@ -51,14 +51,15 @@ dev_dependencies:
   provider: ^6.0.1
   google_fonts: ^2.1.0
   get_it: ^7.2.0
-  flutter_facebook_auth: ^3.5.3
-  google_sign_in: ^5.2.1
-  sign_in_with_apple: ^3.2.0
+  flutter_facebook_auth: ^4.1.1
+  google_sign_in: ^5.2.4
+  sign_in_with_apple: ^3.3.0
   email_validator: ^2.0.1 #Validating if emails entered are good and valid
   fluentui_system_icons: ^1.1.146 #https://pub.dev/packages/fluentui_system_icons/
-  fluttertoast: ^8.0.8 #Provide notifications
+  fluttertoast: ^8.0.9 #Provide notifications
   intl: ^0.17.0 #To format date
   csc_picker: ^0.2.6 #This is to select country and state
+  language_picker: ^0.4.1 #This is for selecting languages
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

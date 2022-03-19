@@ -9,8 +9,11 @@ import 'package:im/scenes/login/login_scene.dart';
 import 'package:im/scenes/onboarding_scene/onboarding_form.dart';
 import 'package:im/scenes/onboarding_scene/onboarding_scene.dart';
 import 'package:im/scenes/onboarding_scene/onboarding_scene_view_model.dart';
+import 'package:im/scenes/root_scene/root_view_model.dart';
 import 'package:im/services/firebase_auth.dart';
 import 'package:provider/provider.dart';
+
+import '../scenes/root_scene/root_view.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -35,6 +38,13 @@ class AppRouter {
             builder: (context, _) => const EmailVerifyScene(),
           ),
         );
+      case RootScene.routeName:
+        return MaterialPageRoute(
+          builder: (context) => ChangeNotifierProvider.value(
+            value: RootViewModel(),
+            builder: (context, _) => const RootScene(),
+          ),
+        );
       case DashboardScene.routeName:
         return MaterialPageRoute(
           builder: (context) => ChangeNotifierProvider.value(
@@ -44,7 +54,10 @@ class AppRouter {
         );
       case OnboardingScene.routeName:
         return MaterialPageRoute(
-          builder: (context) => const OnboardingScene(),
+          builder: (context) => ChangeNotifierProvider.value(
+            value: OnboardingSceneViewModel(),
+            builder: (context, _) => const OnboardingScene(),
+          ),
         );
       case OnboardingForm.routeName:
         return MaterialPageRoute(
@@ -56,9 +69,11 @@ class AppRouter {
 
       default:
         return MaterialPageRoute(
-          builder: (context) => ChangeNotifierProvider.value(
-            value: _authManager,
-            builder: (context, _) => const AuthenticationGateView(),
+          settings: settings,
+          builder: (_) => Scaffold(
+            body: Center(
+              child: Text('The Route has not defined for: ${settings.name}'),
+            ),
           ),
         );
     }
